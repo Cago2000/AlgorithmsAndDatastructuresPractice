@@ -7,7 +7,7 @@ public class Main {
         bubbleSort();
     }
 
-    static void bubbleSort()
+    public static void bubbleSort()
     {
         Random random = new Random();
         int arraySize = random.nextInt(40) + 1; // random size 1-40
@@ -58,7 +58,7 @@ public class Main {
         }
     }
 
-    static void printArray(int[] input) {
+    public static void printArray(int[] input) {
         for (int i:input) {
             System.out.print(i +" ");
         }
