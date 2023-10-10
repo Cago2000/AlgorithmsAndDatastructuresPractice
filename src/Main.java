@@ -17,7 +17,7 @@ public class Main {
             input[i] = random.nextInt(101); // random number 1-100
         }
 
-        //input = new int[]{1,2,3,4,5,6,7,8,9,10}; // sorted array
+        input = new int[]{1,2,3,4,5,6,7,8,9,10}; // sorted array
         int comparisons = 0;
         boolean sorted = false;
         printArray(input);
@@ -31,6 +31,7 @@ public class Main {
             }
             else if(i == input.length-1){
                 sorted = true;
+                System.out.println("Comparisons = " + comparisons);
             }
         }
 
@@ -51,10 +52,6 @@ public class Main {
 
                 }
             }
-        }
-        else
-        {
-            System.out.println("Comparisons = " + comparisons);
         }
     }
 
