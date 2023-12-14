@@ -4,8 +4,9 @@ public class Main {
     static int comparisons = 0;
     public static void main(String[] args)
     {
-        bubbleSort();
-        insertionSort();
+        //bubbleSort();
+        //insertionSort();
+        System.out.println(euclideanAlgorithm(56,28));
     }
 
     public static void insertionSort()
@@ -111,6 +112,23 @@ public class Main {
             }
         }
         return result;
+    }
+
+    public static int euclideanAlgorithm(int a, int b)
+    {
+        if(b>a)
+        {
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        if(b == 0){return a;}
+        while(a>b)
+        {
+            a -= b;
+        }
+        euclideanAlgorithm(a, a % b);
+        return a;
     }
 }
 
