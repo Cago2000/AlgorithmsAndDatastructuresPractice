@@ -14,42 +14,46 @@ public class Main {
 
     public static void quickSortInit()
     {
-        ArrayList<Integer> input = new ArrayList<>();
-        Random random = new Random();
-        for (int i = 0; i < 20; i++) {
-
-            int randomValue = random.nextInt(100);
-            input.add(randomValue);
-        }
-        ArrayList<Integer> left = new ArrayList<>();
-        ArrayList<Integer> right = new ArrayList<>();
-
-        quickSort(input,left,right);
+        int[] input = Util.makeRandomArray();
+        Util.printArray(input);
+        input = quickSort(input,0,input.length);
+        Util.printArray(input);
     }
-    public static void quickSort(ArrayList<Integer> input,ArrayList<Integer> left,ArrayList<Integer> right)
+    public static int[] quickSort(int[] input,int left,int right)
     {
-            if(input.size()>1) {
-                int pivot = input.size()/2;
-                System.out.println("Pivot: "+input.get(pivot));
-                for (int i = 0; i < input.size(); i++) {
-                    if (i == pivot) {
-                        continue;
-                    }
-                    if (input.get(i) >= input.get(pivot)) {
-                        left.add(input.get(i));
-                    }
-                    if (input.get(i) < input.get(pivot)) {
-                        right.add(input.get(i));
-                    }
-                }
-            System.out.print("Left: ");
-            for (int i:right) {System.out.print(i+" ");}
-            System.out.print("\nRight: ");
-            for (int i:left) {System.out.print(i +" ");}
-            System.out.println("\n");
-            quickSort(left,new ArrayList<>(), new ArrayList<>());
-            quickSort(right,new ArrayList<>(), new ArrayList<>());
+        if(left>=right){return input;}
+
+        int pivotElement = input[left];
+        int j = left;
+        for(int i = left+1; i < right; i++)
+        {
+            if(input[i]<=pivotElement)
+            {
+                j = j + 1;
+                int temp = input[i];
+                input[i] = input[j];
+                input[j] = temp;
+            }
         }
+        int temp = input[j];                    //swapping pivot to correct place ==> j counter
+        input[j] = input[left];
+        input[left] = temp;
+
+        System.out.println("Pivot: " + pivotElement);
+        System.out.print("Left Partition: ");
+        for (int a = 0; a <= j; a++) {
+            System.out.print(input[a]+" ");
+        }
+        System.out.print("\nRight Partition: ");
+        for (int a = j+1; a < right; a++) {
+            System.out.print(input[a]+" ");
+        }
+        System.out.println("\n----------------------------------------");
+
+
+        quickSort(input,left,j);                //recursive calls
+        quickSort(input,j+1,right);
+        return input;
     }
     public static void insertionSort()
     {
