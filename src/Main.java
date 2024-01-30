@@ -1,7 +1,3 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Random;
-
 public class Main {
 
     public static void main(String[] args)
@@ -9,15 +5,43 @@ public class Main {
         //bubbleSort();
         //insertionSort();
         //System.out.println(euclideanAlgorithm(56,44));
-        quickSortInit();
+        //quickSortInit();
+        countingSort();
     }
+
+    public static void countingSort()
+    {
+        int[] input = Util.makeRandomArray();
+        int[] output = new int[input.length];
+        Util.printArray(input);
+
+        int maxNumber = 0;
+        for(int i:input)
+        {
+            if(i > maxNumber){maxNumber = i;}
+        }
+        int[] countingArray = new int[maxNumber+1];
+        for(int i = 0; i < countingArray.length; i++) {countingArray[i] = 0;}
+
+        for(int i:input) {
+            countingArray[i] += 1;
+        }
+        for(int i = 1; i < countingArray.length; i++) {
+            countingArray[i]+=countingArray[i-1];
+        }
+        for (int i = input.length-1; i >= 0 ; i--) {
+            output[countingArray[input[i]]-1] = input[i];
+            countingArray[input[i]] -= 1;
+        }
+        Util.printArray(output);
+    }
+
 
     public static void quickSortInit()
     {
         int[] input = Util.makeRandomArray();
         Util.printArray(input);
-        input = quickSort(input,0,input.length);
-        Util.printArray(input);
+        Util.printArray(quickSort(input,0,input.length));
     }
     public static int[] quickSort(int[] input,int left,int right)
     {
