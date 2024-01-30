@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args)
@@ -21,7 +23,8 @@ public class Main {
             if(i > maxNumber){maxNumber = i;}
         }
         int[] countingArray = new int[maxNumber+1];
-        for(int i = 0; i < countingArray.length; i++) {countingArray[i] = 0;}
+
+        Arrays.fill(countingArray,0,countingArray.length-1,0);
 
         for(int i:input) {
             countingArray[i] += 1;
@@ -83,8 +86,6 @@ public class Main {
     {
         int comparisons = 0;
         int[] input = Util.makeRandomArray();
-        //input = new int[]{1,4,3,5,2}; // test array
-        //input = new int[]{1,2,3,4,5,6,7,8,9,10}; // sorted array
         boolean sorted = Util.arrayIsSorted(input);
         System.out.println("Insertion Sort:");
         Util.printArray(input);
