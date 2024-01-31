@@ -83,8 +83,6 @@ public class Main {
     {
         int comparisons = 0;
         int[] input = Util.makeRandomArray();
-        //input = new int[]{1,4,3,5,2}; // test array
-        //input = new int[]{1,2,3,4,5,6,7,8,9,10}; // sorted array
         boolean sorted = Util.arrayIsSorted(input);
         System.out.println("Insertion Sort:");
         Util.printArray(input);
@@ -114,7 +112,6 @@ public class Main {
     {
         int comparisons = 0;
         int[] input = Util.makeRandomArray();
-        //input = new int[]{1,2,3,4,5,6,7,8,9,10}; // sorted array
         boolean sorted;
         System.out.println("Bubble Sort:");
         Util.printArray(input);
