@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -8,7 +9,69 @@ public class Main {
         //insertionSort();
         //System.out.println(euclideanAlgorithm(56,44));
         //quickSortInit();
-        countingSort();
+        //countingSort();
+        mergeSortInit();
+    }
+
+    public static void mergeSortInit()
+    {
+        int[] input = Util.makeRandomArray();
+        Util.printArray(input);
+        input = mergeSort(input,0,input.length-1);
+        Util.printArray(input);
+    }
+
+    public static int[] mergeSort(int[] input, int left, int right)
+    {
+        for (int i = left; i <= right; i++) {
+            System.out.print(input[i]+" ");
+        }
+        System.out.println();
+
+        if(left>=right)
+        {
+            return new int[]{input[left]};
+        }
+
+        int mid = (left+right)/2;
+        int[] leftSide = mergeSort(input,left,mid);
+        int[] rightSide = mergeSort(input,mid+1,right);
+        int[] mergedArray = new int[leftSide.length+rightSide.length];
+
+        System.out.print("Left Side: ");
+        Util.printArray(leftSide);
+        System.out.print("Right Side: ");
+        Util.printArray(rightSide);
+
+        int leftCounter = 0, rightCounter = 0, mergedCounter = 0;
+        while(leftCounter < leftSide.length && rightCounter < rightSide.length)
+        {
+            if(leftSide[leftCounter] < rightSide[rightCounter])
+            {
+                mergedArray[mergedCounter] = leftSide[leftCounter];
+                leftCounter++;
+                mergedCounter++;
+            }
+            else
+            {
+                mergedArray[mergedCounter] = rightSide[rightCounter];
+                rightCounter++;
+                mergedCounter++;
+            }
+        }
+        while(leftCounter < leftSide.length)
+        {
+                mergedArray[mergedCounter] = leftSide[leftCounter];
+                leftCounter++;
+                mergedCounter++;
+        }
+        while(rightCounter < rightSide.length)
+        {
+                mergedArray[mergedCounter] = rightSide[rightCounter];
+                rightCounter++;
+                mergedCounter++;
+        }
+        return mergedArray;
     }
 
     public static void countingSort()
