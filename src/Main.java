@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -10,8 +9,55 @@ public class Main {
         //System.out.println(euclideanAlgorithm(56,44));
         //quickSortInit();
         //countingSort();
-        mergeSortInit();
+        //mergeSortInit();
+        heapSort();
     }
+
+    public static void heapSort()
+    {
+        int[] input = Util.makeRandomArray();
+        input[0] = 0;
+        Util.printArray(input);
+        int n = input.length-1;
+        for (int i = n/2; i >= 1 ; i--)
+        {
+            maxHeapify(input,i,n);
+        }
+        for(int i = n; i >= 2 ; i--)
+        {
+            int temp = input[1];
+            input[1] = input[i];
+            input[i] = temp;
+            maxHeapify(input,1,i-1);
+        }
+        Util.printArray(input);
+    }
+    public static void maxHeapify(int[] input, int parent, int n)
+    {
+        int leftChild = 2*parent;
+        int rightChild= (2*parent)+1;
+        int largest;
+        if(leftChild <= n && input[leftChild] > input[parent])
+        {
+            largest = leftChild;
+        }
+        else
+        {
+            largest = parent;
+        }
+        if(rightChild <= n && input[rightChild] > input[largest])
+        {
+            largest = rightChild;
+        }
+        if(largest != parent)
+        {
+            int temp = input[parent];
+            input[parent] = input[largest];
+            input[largest] = temp;
+            maxHeapify(input,largest,n);
+        }
+    }
+
 
     public static void mergeSortInit()
     {
@@ -37,11 +83,6 @@ public class Main {
         int[] leftSide = mergeSort(input,left,mid);
         int[] rightSide = mergeSort(input,mid+1,right);
         int[] mergedArray = new int[leftSide.length+rightSide.length];
-
-        System.out.print("Left Side: ");
-        Util.printArray(leftSide);
-        System.out.print("Right Side: ");
-        Util.printArray(rightSide);
 
         int leftCounter = 0, rightCounter = 0, mergedCounter = 0;
         while(leftCounter < leftSide.length && rightCounter < rightSide.length)
