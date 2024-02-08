@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Problems {
 
-    public static void hireProblem(int amountOfRuns, int candidateCount)
+    public static double hireProblem(int amountOfRuns, int candidateCount)
     {
         long startTime = System.nanoTime();
         double sumOfHires = 0;
@@ -29,12 +29,14 @@ public class Problems {
                 }
             }
             sumOfHires += countOfHires;
-
         }
+
+        double averageHires = sumOfHires/amountOfRuns;
         long endTime = System.nanoTime();
         long totalRuntimeInMs = (endTime - startTime)/1000000;
-        System.out.println("Average of hires for " + candidateCount +" candidates in " + amountOfRuns+ " runs: " + (sumOfHires/amountOfRuns));
+        System.out.println("Average of hires for " + candidateCount +" candidates in " + amountOfRuns+ " runs: " + averageHires);
         System.out.println("Natural log of " + candidateCount + ": " + Math.log(candidateCount));
         System.out.println("Runtime: " + totalRuntimeInMs + "ms");
+        return averageHires;
     }
 }

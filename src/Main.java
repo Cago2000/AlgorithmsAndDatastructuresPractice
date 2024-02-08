@@ -10,12 +10,6 @@ public class Main {
         //Sorts.countingSort();
         //Sorts.mergeSortInit();
         //Sorts.heapSort();
-        Problems.hireProblem(27,100000000);
+        Problems.hireProblem(100,1000000);
     }
-
-
-
-
 }
-
-
