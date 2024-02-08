@@ -25,11 +25,21 @@ public class Util {
     public static int[] makeRandomArray()
     {
         Random random = new Random();
-        int arraySize = random.nextInt(40) + 1; // random size 1-40
+        int arraySize = random.nextInt(100) + 1; // random size 1-100
         int[] array = new int[arraySize];
         for (int i = 0; i < arraySize; i++)
         {
             array[i] = random.nextInt(101); // random number 1-100
+        }
+        return array;
+    }
+    public static int[] makeRandomArray(int size, int maxValue)
+    {
+        Random random = new Random();
+        int[] array = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            array[i] = random.nextInt(maxValue); // random number 1-100
         }
         return array;
     }
