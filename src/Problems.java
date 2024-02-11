@@ -13,7 +13,7 @@ public class Problems {
             double[] candidates = new double[candidateCount];
             for (int i = 0; i < candidateCount; i++)
             {
-                candidates[i] = random.nextDouble(0,100); //random double from 0 to 100.0
+                candidates[i] = random.nextDouble(0,10000); //random double from 0 to 10000.0
             }
             double currentBest = -1;
             double countOfHires = 0;
@@ -30,7 +30,6 @@ public class Problems {
             }
             sumOfHires += countOfHires;
         }
-
         double averageHires = sumOfHires/amountOfRuns;
         long endTime = System.nanoTime();
         long totalRuntimeInMs = (endTime - startTime)/1000000;
