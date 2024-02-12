@@ -3,6 +3,29 @@ import java.util.Random;
 
 public class Problems {
 
+    public static void fiveComparisonProblem() {
+        int[] input = Util.makeRandomArray(4, 100);
+        Util.printArray(input);
+        if (input[0] > input[1]) {
+            Util.swapElements(input,0,1);
+        }
+        if (input[2] > input[3]) {
+            Util.swapElements(input,2,3);
+        }
+
+        if (input[0] > input[2]) {
+            Util.swapElements(input,0,2);
+        }
+        if (input[1] > input[3]) {
+            Util.swapElements(input,1,3);
+        }
+
+        if (input[1] > input[2]) {
+            Util.swapElements(input,1,2);
+        }
+        Util.printArray(input);
+    }
+
     public static double hireProblem(int amountOfRuns, int candidateCount)
     {
         long startTime = System.nanoTime();

@@ -52,4 +52,11 @@ public class Util {
         }
         System.out.println();
     }
+
+    public static void swapElements(int[] input, int a, int b)
+    {
+        int temp = input[a];
+        input[a] = input[b];
+        input[b] = temp;
+    }
 }

@@ -13,9 +13,7 @@ public class Sorts {
         }
         for(int i = n; i >= 2 ; i--)
         {
-            int temp = input[1];
-            input[1] = input[i];
-            input[i] = temp;
+            Util.swapElements(input,1,i);
             maxHeapify(input,1,i-1);
         }
         Util.printArray(input);
@@ -39,9 +37,7 @@ public class Sorts {
         }
         if(largest != parent)
         {
-            int temp = input[parent];
-            input[parent] = input[largest];
-            input[largest] = temp;
+            Util.swapElements(input,parent,largest);
             maxHeapify(input,largest,n);
         }
     }
@@ -149,14 +145,11 @@ public class Sorts {
             if(input[i]<=pivotElement)
             {
                 j = j + 1;
-                int temp = input[i];
-                input[i] = input[j];
-                input[j] = temp;
+                Util.swapElements(input,i,j);
             }
         }
-        int temp = input[j];                    //swapping pivot to correct place ==> j counter
-        input[j] = input[left];
-        input[left] = temp;
+
+        Util.swapElements(input,left,j);
 
         System.out.println("Pivot: " + pivotElement);
         System.out.print("Left Partition: ");
@@ -190,10 +183,7 @@ public class Sorts {
                     comparisons++;
                     if(input[j] < input[j-1])
                     {
-                        int temp;
-                        temp = input[j-1];
-                        input[j-1] = input[j];
-                        input[j] = temp;
+                        Util.swapElements(input,j-1,j);
                         System.out.println("Swapped " + input[j-1] + " with "+ input[j] + ", Comparisons = " + comparisons);
                         Util.printArray(input);
                     }
@@ -220,10 +210,7 @@ public class Sorts {
                     comparisons++;
                     if(input[i] > input[j])
                     {
-                        int temp;
-                        temp = input[i];
-                        input[i] = input[j];
-                        input[j] = temp;
+                        Util.swapElements(input,i,j);
                         System.out.println("Swapped " + input[j] + " with "+ input[i] + ", Comparisons = " + comparisons);
                         Util.printArray(input);
                     }
