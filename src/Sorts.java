@@ -53,11 +53,6 @@ public class Sorts {
 
     public static int[] mergeSort(int[] input, int left, int right)
     {
-        for (int i = left; i <= right; i++) {
-            System.out.print(input[i]+" ");
-        }
-        System.out.println();
-
         if(left>=right)
         {
             return new int[]{input[left]};
@@ -132,7 +127,8 @@ public class Sorts {
     {
         int[] input = Util.makeRandomArray();
         Util.printArray(input);
-        Util.printArray(quickSort(input,0,input.length));
+        input = quickSort(input,0,input.length);
+        Util.printArray(input);
     }
     public static int[] quickSort(int[] input,int left,int right)
     {
