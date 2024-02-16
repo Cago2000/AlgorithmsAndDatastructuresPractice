@@ -12,5 +12,6 @@ public class Main {
         //Sorts.heapSort();
         //Problems.hireProblem(100,10000000);
         //Problems.fiveComparisonProblem();
+        Algorithms.binarySearchInit();
     }
 }
