@@ -1,8 +1,7 @@
 
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         //Sorts.bubbleSort();
         //Sorts.insertionSort();
         //System.out.println(Algorithms.euclideanAlgorithm(56,44));
@@ -12,6 +11,8 @@ public class Main {
         //Sorts.heapSort();
         //Problems.hireProblem(100,10000000);
         //Problems.fiveComparisonProblem();
-        Algorithms.binarySearchInit();
+        //Algorithms.binarySearchInit();
+        Problems.hatProblem(10000);
+
     }
 }

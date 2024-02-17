@@ -1,5 +1,5 @@
 import java.lang.Math;
-import java.util.Random;
+import java.util.*;
 
 public class Problems {
 
@@ -60,5 +60,30 @@ public class Problems {
         System.out.println("Natural log of " + candidateCount + ": " + Math.log(candidateCount));
         System.out.println("Runtime: " + totalRuntimeInMs + "ms");
         return averageHires;
+    }
+
+    public static void hatProblem(int amountOfRuns)
+    {
+        float averageCorrectHats = 0;
+        for (int i = 0; i < amountOfRuns; i++) {
+
+            Integer[] input = new Integer[1000];
+            for (int j = 0; j < input.length; j++) {
+                input[j] = j;
+            }
+            List<Integer> list = Arrays.asList(input);
+            Collections.shuffle(list);
+            list.toArray(input);
+
+            int correctHats = 0;
+            for (int j = 0; j < input.length; j++) {
+                if(j == input[j])
+                {
+                    correctHats++;
+                }
+            }
+            averageCorrectHats += correctHats;
+        }
+        System.out.println("On average " + averageCorrectHats/amountOfRuns + " have been returned to their rightful owner!");
     }
 }

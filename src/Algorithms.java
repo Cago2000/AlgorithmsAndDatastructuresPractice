@@ -30,7 +30,6 @@ public class Algorithms {
             return;
         }
         int mid = (left + right) / 2;
-        System.out.println(input[mid]);
         if(wantedNumber < input[mid])
         {
             comparisonCount++;
@@ -48,4 +47,5 @@ public class Algorithms {
             System.out.println("Comparisons: " + comparisonCount);
         }
     }
+
 }
