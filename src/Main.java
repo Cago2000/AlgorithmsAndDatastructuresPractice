@@ -11,7 +11,7 @@ public class Main {
         //Problems.hireProblem(100,10000000);
         //Problems.fiveComparisonProblem();
         //Algorithms.binarySearchInit();
-        Problems.hatProblem(10000);
+        Problems.hatProblem(100000);
 
     }
 }
