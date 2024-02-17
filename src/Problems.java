@@ -64,9 +64,12 @@ public class Problems {
 
     public static void hatProblem(int amountOfRuns)
     {
+        long startTime = System.nanoTime();
         float averageCorrectHats = 0;
         for (int i = 0; i < amountOfRuns; i++) {
 
+            double percentage = ((double) i/amountOfRuns)*100.0;
+            System.out.println("Run " + i + "/" + amountOfRuns+" (" + (int) percentage + "%)");
             Integer[] input = new Integer[1000];
             for (int j = 0; j < input.length; j++) {
                 input[j] = j;
@@ -84,6 +87,10 @@ public class Problems {
             }
             averageCorrectHats += correctHats;
         }
-        System.out.println("On average " + averageCorrectHats/amountOfRuns + " hats have been returned to their rightful owner!");
+        long endTime = System.nanoTime();
+        long totalRuntimeInMs = (endTime - startTime)/1000000;
+        System.out.println("On average " + averageCorrectHats/amountOfRuns + " hats have been returned to their rightful owner in " + amountOfRuns + " runs");
+        System.out.println("Runtime: " + totalRuntimeInMs + "ms");
+
     }
 }
