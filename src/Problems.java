@@ -84,6 +84,6 @@ public class Problems {
             }
             averageCorrectHats += correctHats;
         }
-        System.out.println("On average " + averageCorrectHats/amountOfRuns + " have been returned to their rightful owner!");
+        System.out.println("On average " + averageCorrectHats/amountOfRuns + " hats have been returned to their rightful owner!");
     }
 }
