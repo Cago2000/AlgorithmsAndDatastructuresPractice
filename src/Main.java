@@ -1,6 +1,8 @@
+import java.io.IOException;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, IOException {
         //Sorts.bubbleSort();
         //Sorts.insertionSort();
         //System.out.println(Algorithms.euclideanAlgorithm(56,44));
@@ -11,7 +13,7 @@ public class Main {
         //Problems.hireProblem(100,10000000);
         //Problems.fiveComparisonProblem();
         //Algorithms.binarySearchInit();
-        Problems.hatProblem(100000);
-
+        //Problems.hatProblem(100000);
+        Algorithms.primsAlgorithm(6,"./primAlgorithm/0.png");
     }
 }

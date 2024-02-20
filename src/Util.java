@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Util {
@@ -72,11 +73,9 @@ public class Util {
     public static int[][] generateWeightedGraph(int size)
     {
         Random random = new Random();
-        int[][] graph = new int[size][size];
+        int[][] matrix = new int[size][size];
         for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                graph[i][j] = -1;
-            }
+            Arrays.fill(matrix[i],-1);
         }
 
         System.out.print("  | ");
@@ -90,15 +89,15 @@ public class Util {
 
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                if(graph[i][j] == -1)
+                if(matrix[i][j] == -1)
                 {
-                    graph[i][j] = (i == j) || random.nextInt(5) > 2  ? 0 : random.nextInt(5);
-                    graph[j][i] = graph[i][j];
+                    matrix[i][j] = (i == j) || random.nextInt(10) < 4? 0 : random.nextInt(10);
+                    matrix[j][i] = matrix[i][j];
                 }
             }
             System.out.print((i<10) ? i+" | " : i+"| ");
-            Util.printArray(graph[i]);
+            Util.printArray(matrix[i]);
         }
-        return graph;
+        return matrix;
     }
 }
