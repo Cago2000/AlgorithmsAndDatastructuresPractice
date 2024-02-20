@@ -14,6 +14,6 @@ public class Main {
         //Problems.fiveComparisonProblem();
         //Algorithms.binarySearchInit();
         //Problems.hatProblem(100000);
-        Algorithms.primsAlgorithm(6,"./primAlgorithm/0.png");
-    }
+        //Algorithms.primsAlgorithm(6,"./primAlgorithm/0.png");
+     }
 }

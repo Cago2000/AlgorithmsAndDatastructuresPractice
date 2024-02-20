@@ -1,3 +1,10 @@
+import guru.nidi.graphviz.attribute.Label;
+import guru.nidi.graphviz.model.Graph;
+
+import java.io.IOException;
+import java.util.Arrays;
+
+import static guru.nidi.graphviz.model.Factory.node;
 public class Algorithms {
 
     public static int euclideanAlgorithm(int a, int b)
@@ -9,12 +16,8 @@ public class Algorithms {
             b = temp;
         }
         if(b == 0){return a;}
-        while(a>b)
-        {
-            a -= b;
-        }
-        euclideanAlgorithm(a, a % b);
-        return a;
+
+        return euclideanAlgorithm(b, a % b);
     }
 
     public static void binarySearchInit()
@@ -48,4 +51,23 @@ public class Algorithms {
         }
     }
 
+    public static void primsAlgorithm(int size, String filePath) throws IOException {
+
+        int[][] input = Util.generateWeightedGraph(size);
+        int[] nodeValues = new int[size];
+        Arrays.fill(nodeValues,1000);
+        Graph g = GenerateGraph.generatePrimInitialGraph(input,0,filePath);
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++)
+            {
+                if(i > j && input[i][j] != 0 && input[i][j] < nodeValues[j])
+                {
+                    g = g.with(node(nodeValues[j]+", "+j).with(Label.markdown(input[i][j] + ",fuba "+ j)));
+                    nodeValues[j] = input[i][j];
+                }
+            }
+            filePath = "./primAlgorithm/" + (i+1) + ".png";
+            GenerateGraph.saveGraph(g,filePath);
+        }
+    }
 }
