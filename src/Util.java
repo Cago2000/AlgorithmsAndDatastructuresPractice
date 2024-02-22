@@ -1,5 +1,17 @@
+import guru.nidi.graphviz.attribute.Style;
+import guru.nidi.graphviz.engine.Engine;
+import guru.nidi.graphviz.engine.Format;
+import guru.nidi.graphviz.engine.Graphviz;
+import guru.nidi.graphviz.model.Graph;
+
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Random;
+
+import static guru.nidi.graphviz.attribute.Attributes.attr;
+import static guru.nidi.graphviz.model.Factory.*;
+import static guru.nidi.graphviz.model.Factory.node;
 
 public class Util {
 
@@ -91,7 +103,7 @@ public class Util {
             for (int j = 0; j < size; j++) {
                 if(matrix[i][j] == -1)
                 {
-                    matrix[i][j] = (i == j) || random.nextInt(10) < 4? 0 : random.nextInt(10);
+                    matrix[i][j] = (i == j) || random.nextInt(10) > 5 ? 0 : random.nextInt(10);
                     matrix[j][i] = matrix[i][j];
                 }
             }
@@ -99,5 +111,22 @@ public class Util {
             Util.printArray(matrix[i]);
         }
         return matrix;
+    }
+
+    public static Graph drawGraph(int[][] input){
+        Graph g = graph("Graph").linkAttr().with("class", "link-class");
+        for (int i = 0; i < input.length; i++) {
+            for (int j = i; j < input.length; j++) {
+                if(input[i][j] == 0 || i == j){continue;}
+                g = g.with(node((char) (65 + i) + " " + input[i][i])
+                        .link(to(node((char) (65 + j) + " " + input[j][j]))
+                                .with(attr("label", input[i][j]), Style.DASHED)));
+            }
+        }
+        return g;
+    }
+
+    public static void saveGraph(Graph g, String filePath) throws IOException {
+        Graphviz.fromGraph(g).engine(Engine.CIRCO).render(Format.PNG).toFile(new File(filePath));
     }
 }
