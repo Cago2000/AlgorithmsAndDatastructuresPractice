@@ -1,15 +1,17 @@
-import guru.nidi.graphviz.attribute.Style;
-import guru.nidi.graphviz.engine.Engine;
+import guru.nidi.graphviz.attribute.Rank;
+import guru.nidi.graphviz.model.Graph;
 import guru.nidi.graphviz.engine.Format;
 import guru.nidi.graphviz.engine.Graphviz;
-import guru.nidi.graphviz.model.Graph;
-
 import java.io.File;
 import java.io.IOException;
+import guru.nidi.graphviz.attribute.Style;
+import guru.nidi.graphviz.engine.Engine;
+
 import java.util.Arrays;
 import java.util.Random;
 
 import static guru.nidi.graphviz.attribute.Attributes.attr;
+import static guru.nidi.graphviz.attribute.Rank.RankDir.*;
 import static guru.nidi.graphviz.model.Factory.*;
 import static guru.nidi.graphviz.model.Factory.node;
 
@@ -114,7 +116,8 @@ public class Util {
     }
 
     public static Graph drawGraph(int[][] input){
-        Graph g = graph("Graph").linkAttr().with("class", "link-class");
+        Graph g = graph("Graph")
+                .linkAttr().with("class", "link-class");
         for (int i = 0; i < input.length; i++) {
             for (int j = i; j < input.length; j++) {
                 if(input[i][j] == 0 || i == j){continue;}
@@ -126,7 +129,20 @@ public class Util {
         return g;
     }
 
-    public static void saveGraph(Graph g, String filePath) throws IOException {
-        Graphviz.fromGraph(g).engine(Engine.CIRCO).render(Format.PNG).toFile(new File(filePath));
+    public static Graph drawTree(Node[] nodes)
+    {
+        Graph tree = graph("Tree").directed()
+                .graphAttr().with(Rank.dir(BOTTOM_TO_TOP))
+                .linkAttr().with("class", "link-class");
+        for(int i = nodes.length-1; i > 0; i--) {
+            tree = tree.with(node(Character.toString(nodes[i].index + 65))
+                    .link(to(node(Character.toString(nodes[i].parent.index + 65)))
+                            .with(attr("label", nodes[i].value), Style.DASHED)));
+        }
+        return tree;
+    }
+
+    public static void saveGraph(Graph g, Engine engine, String filePath) throws IOException {
+        Graphviz.fromGraph(g).engine(engine).render(Format.PNG).toFile(new File(filePath));
     }
 }
