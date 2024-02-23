@@ -1,7 +1,12 @@
+import guru.nidi.graphviz.engine.Engine;
 import guru.nidi.graphviz.model.Graph;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Objects;
+import java.util.Optional;
 
 public class Algorithms {
 
@@ -49,19 +54,12 @@ public class Algorithms {
         }
     }
     
-    public static void primsAlgorithm(int size, String filePath) throws IOException {
+    public static void primsAlgorithm(int size) throws IOException {
 
+        if(size<2){return;}
         File dir = new File("./primAlgorithm");
-        if (dir.length() != 0)
-        {
-            for(File file: dir.listFiles())
-            {
-                file.delete();
-            }
-        }
-
+        Arrays.stream(dir.listFiles()).forEach(File::delete);
         int[][] input = Util.generateWeightedGraph(size);
-        input[0][0] = 0;
         Node[] nodes = new Node[input.length];
         for (int i = 0; i < input.length; i++)
         {
@@ -71,45 +69,37 @@ public class Algorithms {
         }
 
         Graph g = Util.drawGraph(input);
-        Util.saveGraph(g,filePath);
+        Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/initial.png");
 
         int i = 0;
         boolean allChecked = false;
         while(!allChecked)
         {
-            Node smallestNode = new Node(1001,1001);
-            for(Node node: nodes)
-            {
-                if(node.value < smallestNode.value && !node.checked)
-                {
-                    smallestNode = node;
-                }
-            }
+            Optional<Node> smallestNode = Arrays.stream(nodes).filter((node) -> !node.checked).min(Comparator.comparing(Node::getValue));
+            Node min = smallestNode.get();
             for (int j = 0; j < input.length; j++)
             {
-                if(input[smallestNode.index][j] != 0 && !nodes[j].checked && input[smallestNode.index][j] < input[j][j])
+                if(input[min.index][j] != 0 && !nodes[j].checked && input[min.index][j] < input[j][j])
                 {
-                    input[j][j] = input[smallestNode.index][j];
-                    nodes[j].value = input[smallestNode.index][j];
-                    nodes[j].parent = nodes[smallestNode.index];
+                    input[j][j] = input[min.index][j];
+                    nodes[j].value = input[min.index][j];
+                    nodes[j].parent = nodes[min.index];
                 }
             }
-            nodes[smallestNode.index].checked = true;
+
+            nodes[min.index].checked = true;
 
             g = Util.drawGraph(input);
-            Util.saveGraph(g,"./primAlgorithm/solution" + i + ".png");
+            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + i + ".png");
 
-            for (Node node: nodes)
+            if(Arrays.stream(nodes).allMatch((node) -> node.checked))
             {
-                if(!node.checked)
-                {
-                    allChecked = false;
-                    break;
-                }
-                else
-                    allChecked= true;
+                allChecked = true;
             }
             i++;
         }
+
+        g = Util.drawTree(nodes);
+        Util.saveGraph(g, Engine.DOT,"./primAlgorithm/finalTree.png");
     }
 }
