@@ -77,6 +77,23 @@ public class Util {
         System.out.println();
     }
 
+    public static void printMatrix(int[][] input)
+    {
+        System.out.print("  | ");
+        for (int i = 0; i < input.length; i++) {System.out.print(i + " ");}
+        System.out.print("\n--|");
+        for (int i = 0; i < input.length; i++)
+        {
+            System.out.print("--");
+        }
+        System.out.println();
+
+        for (int i = 0; i < input.length; i++) {
+            System.out.print((i<10) ? i+" | " : i+"| ");
+            Util.printArray(input[i]);
+        }
+    }
+
     public static void swapElements(int[] input, int a, int b)
     {
         int temp = input[a];
@@ -92,15 +109,6 @@ public class Util {
             Arrays.fill(matrix[i],-1);
         }
 
-        System.out.print("  | ");
-        for (int i = 0; i < size; i++) {System.out.print(i + " ");}
-        System.out.print("\n--|");
-        for (int i = 0; i < size; i++)
-        {
-            System.out.print("--");
-        }
-        System.out.println();
-
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 if(matrix[i][j] == -1)
@@ -109,9 +117,8 @@ public class Util {
                     matrix[j][i] = matrix[i][j];
                 }
             }
-            System.out.print((i<10) ? i+" | " : i+"| ");
-            Util.printArray(matrix[i]);
         }
+        Util.printMatrix(matrix);
         return matrix;
     }
 

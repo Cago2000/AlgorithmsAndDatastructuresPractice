@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Objects;
 import java.util.Optional;
 
 public class Algorithms {
@@ -98,7 +97,6 @@ public class Algorithms {
             }
             i++;
         }
-
         g = Util.drawTree(nodes);
         Util.saveGraph(g, Engine.DOT,"./primAlgorithm/finalTree.png");
     }
