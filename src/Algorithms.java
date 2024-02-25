@@ -67,7 +67,7 @@ public class Algorithms {
             nodes[i] = new Node(i,input[i][i]);
         }
 
-        Graph g = Util.drawGraph(input);
+        Graph g = Util.drawGraph(input,"Initial");
         Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/initial.png");
 
         int i = 0;
@@ -88,16 +88,17 @@ public class Algorithms {
 
             nodes[min.index].checked = true;
 
-            g = Util.drawGraph(input);
-            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + i + ".png");
-
-            if(Arrays.stream(nodes).allMatch((node) -> node.checked))
-            {
-                allChecked = true;
-            }
+            if(Arrays.stream(nodes).allMatch((node) -> node.checked)) {allChecked = true;}
             i++;
+
+            g = Util.drawGraph(input, "Step " + i);
+            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + i + ".png");
         }
-        g = Util.drawTree(nodes);
+        g = Util.drawTree(nodes, "Final tree");
         Util.saveGraph(g, Engine.DOT,"./primAlgorithm/finalTree.png");
+
+        String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\primAlgorithm\\initial.png";
+        String expr = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen " + path;
+        Runtime.getRuntime().exec(expr);
     }
 }

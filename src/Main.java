@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -15,5 +14,5 @@ public class Main {
         //Algorithms.binarySearchInit();
         //Problems.hatProblem(100000);
         Algorithms.primsAlgorithm(6);
-     }
+    }
 }

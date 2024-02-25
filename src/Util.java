@@ -1,3 +1,4 @@
+import guru.nidi.graphviz.attribute.Label;
 import guru.nidi.graphviz.attribute.Rank;
 import guru.nidi.graphviz.model.Graph;
 import guru.nidi.graphviz.engine.Format;
@@ -122,8 +123,8 @@ public class Util {
         return matrix;
     }
 
-    public static Graph drawGraph(int[][] input){
-        Graph g = graph("Graph")
+    public static Graph drawGraph(int[][] input, String title){
+        Graph g = graph("Graph").graphAttr().with(Label.of(title))
                 .linkAttr().with("class", "link-class");
         for (int i = 0; i < input.length; i++) {
             for (int j = i; j < input.length; j++) {
@@ -136,10 +137,10 @@ public class Util {
         return g;
     }
 
-    public static Graph drawTree(Node[] nodes)
+    public static Graph drawTree(Node[] nodes, String title)
     {
         Graph tree = graph("Tree").directed()
-                .graphAttr().with(Rank.dir(BOTTOM_TO_TOP))
+                .graphAttr().with(Rank.dir(BOTTOM_TO_TOP),Label.of(title))
                 .linkAttr().with("class", "link-class");
         for(int i = nodes.length-1; i > 0; i--) {
             tree = tree.with(node(Character.toString(nodes[i].index + 65))
