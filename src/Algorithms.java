@@ -1,4 +1,3 @@
-import guru.nidi.graphviz.attribute.Color;
 import guru.nidi.graphviz.engine.Engine;
 import guru.nidi.graphviz.model.Graph;
 
@@ -8,8 +7,6 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-import static guru.nidi.graphviz.model.Factory.node;
 
 public class Algorithms {
 
@@ -71,8 +68,8 @@ public class Algorithms {
             nodes[i] = new Node(i,input[i][i]);
         }
 
-        Graph g = Util.drawGraph(input,"Initial");
-        Util.saveGraph(g, Engine.DOT,"./primAlgorithm/initial.png");
+        Graph g = Util.drawGraph(input,"Initial",-1);
+        Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/initial.png");
 
         int i = 0;
         boolean allChecked = false;
@@ -100,10 +97,8 @@ public class Algorithms {
                     .collect(Collectors.joining(",")) +
                     "}, Step " + (i + 1) + ", Current Node: " + (char) (65 + min.index);
 
-            g = Util.drawGraph(input, title);
-            g = g.with(node((char) (65 + min.index) + " " + input[min.index][min.index]).with(Color.RED));
-
-            Util.saveGraph(g, Engine.DOT,"./primAlgorithm/step" + (i+1) + ".png");
+            g = Util.drawGraph(input, title, min.index);
+            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + (i+1) + ".png");
 
             i++;
         }

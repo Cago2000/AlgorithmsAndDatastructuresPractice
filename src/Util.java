@@ -1,3 +1,4 @@
+import guru.nidi.graphviz.attribute.Color;
 import guru.nidi.graphviz.attribute.Label;
 import guru.nidi.graphviz.attribute.Rank;
 import guru.nidi.graphviz.model.Graph;
@@ -123,20 +124,21 @@ public class Util {
         return matrix;
     }
 
-    public static Graph drawGraph(int[][] input, String title){
-        Graph g = graph("Graph").graphAttr().with(Rank.dir(BOTTOM_TO_TOP),Label.of(title))
+    public static Graph drawGraph(int[][] input, String title, int activeNode){
+        Graph g = graph("Graph")
+                .graphAttr().with(Label.of(title))
                 .linkAttr().with("class", "link-class");
         for (int i = 0; i < input.length; i++) {
             for (int j = i; j < input.length; j++) {
                 if(input[i][j] == 0 || i == j){continue;}
-                g = g.with(node((char) (65 + i) + " " + input[i][i])
+                g = g.with(node((char) (65 + i) + " " + input[i][i]).with(i == activeNode ? Color.RED: Color.BLACK)
                         .link(to(node((char) (65 + j) + " " + input[j][j]))
                                 .with(attr("label", input[i][j]), Style.DASHED)));
             }
         }
         return g;
     }
-
+    //g = g.with(node((char) (65 + min.index) + " " + input[min.index][min.index]).with(Color.RED));
     public static Graph drawTree(Node[] nodes, String title)
     {
         Graph tree = graph("Tree").directed()
