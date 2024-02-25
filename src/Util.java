@@ -124,7 +124,7 @@ public class Util {
     }
 
     public static Graph drawGraph(int[][] input, String title){
-        Graph g = graph("Graph").graphAttr().with(Label.of(title))
+        Graph g = graph("Graph").graphAttr().with(Rank.dir(BOTTOM_TO_TOP),Label.of(title))
                 .linkAttr().with("class", "link-class");
         for (int i = 0; i < input.length; i++) {
             for (int j = i; j < input.length; j++) {

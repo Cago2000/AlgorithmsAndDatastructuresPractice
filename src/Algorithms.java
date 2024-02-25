@@ -1,3 +1,4 @@
+import guru.nidi.graphviz.attribute.Color;
 import guru.nidi.graphviz.engine.Engine;
 import guru.nidi.graphviz.model.Graph;
 
@@ -6,6 +7,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import static guru.nidi.graphviz.model.Factory.node;
 
 public class Algorithms {
 
@@ -68,7 +72,7 @@ public class Algorithms {
         }
 
         Graph g = Util.drawGraph(input,"Initial");
-        Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/initial.png");
+        Util.saveGraph(g, Engine.DOT,"./primAlgorithm/initial.png");
 
         int i = 0;
         boolean allChecked = false;
@@ -87,12 +91,21 @@ public class Algorithms {
             }
 
             nodes[min.index].checked = true;
-
             if(Arrays.stream(nodes).allMatch((node) -> node.checked)) {allChecked = true;}
-            i++;
 
-            g = Util.drawGraph(input, "Step " + i);
-            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + i + ".png");
+            String title = "PrioQueue{" + Arrays.stream(nodes)
+                    .filter(node -> !node.checked)
+                    .map(node -> (char) (65 + node.index))
+                    .map(Object::toString)
+                    .collect(Collectors.joining(",")) +
+                    "}, Step " + (i + 1) + ", Current Node: " + (char) (65 + min.index);
+
+            g = Util.drawGraph(input, title);
+            g = g.with(node((char) (65 + min.index) + " " + input[min.index][min.index]).with(Color.RED));
+
+            Util.saveGraph(g, Engine.DOT,"./primAlgorithm/step" + (i+1) + ".png");
+
+            i++;
         }
         g = Util.drawTree(nodes, "Final tree");
         Util.saveGraph(g, Engine.DOT,"./primAlgorithm/finalTree.png");
