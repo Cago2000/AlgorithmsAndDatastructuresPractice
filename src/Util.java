@@ -130,15 +130,23 @@ public class Util {
                 .linkAttr().with("class", "link-class");
         for (int i = 0; i < input.length; i++) {
             for (int j = i; j < input.length; j++) {
-                if(input[i][j] == 0 || i == j){continue;}
-                g = g.with(node((char) (65 + i) + " " + input[i][i]).with(i == activeNode ? Color.RED: Color.BLACK)
-                        .link(to(node((char) (65 + j) + " " + input[j][j]))
-                                .with(attr("label", input[i][j]), Style.DASHED)));
+                if(input[i][j] == 0){continue;}
+                if(i == j)
+                {
+                    g = g.with(node((char) (65 + i) + " " + input[i][i])
+                            .with(i == activeNode ? Color.RED: Color.BLACK));
+                }
+                else
+                {
+                    g = g.with(node((char) (65 + i) + " " + input[i][i])
+                            .with(i == activeNode ? Color.RED: Color.BLACK)
+                            .link(to(node((char) (65 + j) + " " + input[j][j]))
+                                    .with(attr("label", input[i][j]), Style.DASHED)));
+                }
             }
         }
         return g;
     }
-    //g = g.with(node((char) (65 + min.index) + " " + input[min.index][min.index]).with(Color.RED));
     public static Graph drawTree(Node[] nodes, String title)
     {
         Graph tree = graph("Tree").directed()
