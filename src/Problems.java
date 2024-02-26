@@ -93,4 +93,30 @@ public class Problems {
         System.out.println("Runtime: " + totalRuntimeInMs + "ms");
 
     }
+
+    public static void binarySearchTreeSequenceProblem(int[] input, int searchedNumber)
+    {
+        //idea: save each last decided number (left or right of searchedNumber)
+        // any following left decided number cannot be smaller than prevLeft
+        // any following right decided number cannot be bigger than prevRight
+        int prevRight = 1000, prevLeft = 0;
+        for (int number : input) {
+            if (searchedNumber > number && prevLeft < number) {
+                prevLeft = number;
+                continue;
+            }
+            if (searchedNumber < number && prevRight > number) {
+                prevRight = number;
+                continue;
+            }
+            if(searchedNumber == number)
+            {
+                continue;
+            }
+            System.out.println("Sequence is not a valid binaryTree! " +
+            (searchedNumber > number ? number + " smaller prevLeft " + prevLeft + "!": number + " bigger prevRight " + prevRight + "!"));
+            return;
+        }
+        System.out.println("Sequence is a valid binaryTree!");
+    }
 }
