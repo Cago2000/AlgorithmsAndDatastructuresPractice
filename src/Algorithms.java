@@ -57,7 +57,7 @@ public class Algorithms {
     public static void primsAlgorithm(int size) throws IOException {
 
         if(size<2){return;}
-        File dir = new File("./primAlgorithm");
+        File dir = new File("./graphs/primAlgorithm");
         Arrays.stream(dir.listFiles()).forEach(File::delete);
         int[][] input = Util.generateWeightedGraph(size);
         Node[] nodes = new Node[input.length];
@@ -69,7 +69,7 @@ public class Algorithms {
         }
 
         Graph g = Util.drawGraph(input,"Initial",-1);
-        Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/initial.png");
+        Util.saveGraph(g, Engine.CIRCO,"./graphs/primAlgorithm/initial.png");
 
         int i = 0;
         boolean allChecked = false;
@@ -98,14 +98,69 @@ public class Algorithms {
                     "}, Step " + (i + 1) + ", Current Node: " + (char) (65 + min.index);
 
             g = Util.drawGraph(input, title, min.index);
-            Util.saveGraph(g, Engine.CIRCO,"./primAlgorithm/step" + (i+1) + ".png");
+            Util.saveGraph(g, Engine.CIRCO,"./graphs/primAlgorithm/step" + (i+1) + ".png");
 
             i++;
         }
         g = Util.drawTree(nodes, "Final tree");
-        Util.saveGraph(g, Engine.DOT,"./primAlgorithm/finalTree.png");
+        Util.saveGraph(g, Engine.DOT,"./graphs/primAlgorithm/finalTree.png");
 
-        String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\primAlgorithm\\initial.png";
+        String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\primAlgorithm\\initial.png";
+        String expr = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen " + path;
+        Runtime.getRuntime().exec(expr);
+    }
+
+    public static void dijkstraAlgorithm(int size) throws IOException {
+
+        if(size<2){return;}
+        File dir = new File("./graphs/dijkstraAlgorithm");
+        Arrays.stream(dir.listFiles()).forEach(File::delete);
+        int[][] input = Util.generateWeightedGraph(size);
+        Node[] nodes = new Node[input.length];
+        for (int i = 0; i < input.length; i++)
+        {
+            input[i][i] = 1000;
+            if(i == 0){input[i][i] = 0;}
+            nodes[i] = new Node(i,input[i][i]);
+        }
+        Graph g = Util.drawGraph(input,"Initial",-1);
+        Util.saveGraph(g, Engine.CIRCO,"./graphs/dijkstraAlgorithm/initial.png");
+
+        int i = 0;
+        boolean allChecked = false;
+        while(!allChecked)
+        {
+            Optional<Node> smallestNode = Arrays.stream(nodes).filter((node) -> !node.checked).min(Comparator.comparing(Node::getValue));
+            Node min = smallestNode.get();
+            for (int j = 0; j < input.length; j++)
+            {
+                if(input[min.index][j] != 0 && !nodes[j].checked && input[j][j] > (input[min.index][j] + min.getValue()))
+                {
+                    input[j][j] = input[min.index][j] + min.getValue();
+                    nodes[j].value = input[j][j];
+                    nodes[j].parent = nodes[min.index];
+                }
+            }
+
+            nodes[min.index].checked = true;
+            if(Arrays.stream(nodes).allMatch((node) -> node.checked)) {allChecked = true;}
+
+            String title = "PrioQueue{" + Arrays.stream(nodes)
+                    .filter(node -> !node.checked)
+                    .map(node -> (char) (65 + node.index))
+                    .map(Object::toString)
+                    .collect(Collectors.joining(",")) +
+                    "}, Step " + (i + 1) + ", Current Node: " + (char) (65 + min.index);
+
+            g = Util.drawGraph(input, title, min.index);
+            Util.saveGraph(g, Engine.CIRCO,"./graphs/dijkstraAlgorithm/step" + (i+1) + ".png");
+
+            i++;
+        }
+        g = Util.drawTree(nodes, "Final tree");
+        Util.saveGraph(g, Engine.DOT,"./graphs/dijkstraAlgorithm/finalTree.png");
+
+        String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\dijkstraAlgorithm\\initial.png";
         String expr = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen " + path;
         Runtime.getRuntime().exec(expr);
     }

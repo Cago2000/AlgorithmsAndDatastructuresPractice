@@ -14,8 +14,10 @@ public class Main {
         //Algorithms.binarySearchInit();
         //Problems.hatProblem(100000);
         //Algorithms.primsAlgorithm(6);
-        Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
-        Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
-        Problems.binarySearchTreeSequenceProblem(new int[]{935,278,347,621,299,392,358,363},363);
+        //Algorithms.dijkstraAlgorithm(6);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{935,278,347,621,299,392,358,363},363);
+
     }
 }
