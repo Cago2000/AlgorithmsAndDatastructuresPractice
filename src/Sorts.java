@@ -9,39 +9,15 @@ public class Sorts {
         int n = input.length-1;
         for (int i = n/2; i >= 1 ; i--)
         {
-            maxHeapify(input,i,n);
+            Util.maxHeapify(input,i,n);
         }
         for(int i = n; i >= 2 ; i--)
         {
             Util.swapElements(input,1,i);
-            maxHeapify(input,1,i-1);
+            Util.maxHeapify(input,1,i-1);
         }
         Util.printArray(input);
     }
-    public static void maxHeapify(int[] input, int parent, int n)
-    {
-        int leftChild = 2*parent;
-        int rightChild= (2*parent)+1;
-        int largest;
-        if(leftChild <= n && input[leftChild] > input[parent])
-        {
-            largest = leftChild;
-        }
-        else
-        {
-            largest = parent;
-        }
-        if(rightChild <= n && input[rightChild] > input[largest])
-        {
-            largest = rightChild;
-        }
-        if(largest != parent)
-        {
-            Util.swapElements(input,parent,largest);
-            maxHeapify(input,largest,n);
-        }
-    }
-
 
     public static void mergeSortInit()
     {

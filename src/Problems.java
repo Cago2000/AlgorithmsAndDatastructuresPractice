@@ -6,23 +6,11 @@ public class Problems {
     public static void fiveComparisonProblem() {
         int[] input = Util.makeRandomArray(4, 100);
         Util.printArray(input);
-        if (input[0] > input[1]) {
-            Util.swapElements(input,0,1);
-        }
-        if (input[2] > input[3]) {
-            Util.swapElements(input,2,3);
-        }
-
-        if (input[0] > input[2]) {
-            Util.swapElements(input,0,2);
-        }
-        if (input[1] > input[3]) {
-            Util.swapElements(input,1,3);
-        }
-
-        if (input[1] > input[2]) {
-            Util.swapElements(input,1,2);
-        }
+        if (input[0] > input[1]) {Util.swapElements(input,0,1);}
+        if (input[2] > input[3]) {Util.swapElements(input,2,3);}
+        if (input[0] > input[2]) {Util.swapElements(input,0,2);}
+        if (input[1] > input[3]) {Util.swapElements(input,1,3);}
+        if (input[1] > input[2]) {Util.swapElements(input,1,2);}
         Util.printArray(input);
     }
 
@@ -62,7 +50,7 @@ public class Problems {
         return averageHires;
     }
 
-    public static void hatProblem(int amountOfRuns)
+    public static void hatProblem(int amountOfRuns, int hatCount)
     {
         long startTime = System.nanoTime();
         float averageCorrectHats = 0;
@@ -70,7 +58,7 @@ public class Problems {
 
             double percentage = ((double) i/amountOfRuns)*100.0;
             System.out.println("Run " + i + "/" + amountOfRuns+" (" + (int) percentage + "%)");
-            Integer[] input = new Integer[1000];
+            Integer[] input = new Integer[hatCount];
             for (int j = 0; j < input.length; j++) {
                 input[j] = j;
             }
@@ -91,7 +79,6 @@ public class Problems {
         long totalRuntimeInMs = (endTime - startTime)/1000000;
         System.out.println("On average " + averageCorrectHats/amountOfRuns + " hats have been returned to their rightful owner in " + amountOfRuns + " runs");
         System.out.println("Runtime: " + totalRuntimeInMs + "ms");
-
     }
 
     public static void binarySearchTreeSequenceProblem(int[] input, int searchedNumber)

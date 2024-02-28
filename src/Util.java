@@ -96,6 +96,30 @@ public class Util {
         }
     }
 
+    public static void maxHeapify(int[] input, int parent, int n)
+    {
+        int leftChild = 2*parent;
+        int rightChild= (2*parent)+1;
+        int largest;
+        if(leftChild <= n && input[leftChild] > input[parent])
+        {
+            largest = leftChild;
+        }
+        else
+        {
+            largest = parent;
+        }
+        if(rightChild <= n && input[rightChild] > input[largest])
+        {
+            largest = rightChild;
+        }
+        if(largest != parent)
+        {
+            Util.swapElements(input,parent,largest);
+            Util.maxHeapify(input,largest,n);
+        }
+    }
+
     public static void swapElements(int[] input, int a, int b)
     {
         int temp = input[a];
