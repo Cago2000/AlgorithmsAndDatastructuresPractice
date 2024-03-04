@@ -106,4 +106,46 @@ public class Problems {
         }
         System.out.println("Sequence is a valid binaryTree!");
     }
+
+    public static void findMissingBitProblem(int bitCount)
+    {
+        int numberCount = (int) Math.pow(2,bitCount);
+        int missingIndex = new Random().nextInt(numberCount) + 1;
+        int[] numbers = new int[numberCount-1];
+        for (int i = 0, index = 0; i < numberCount;i++){
+            if(i != missingIndex){
+                numbers[index] = i+1;
+                index++;
+            }
+        }
+        Util.printArray(numbers);
+        System.out.println("Missing number: " + findMissingBit(0,1,numbers, (int) Util.log((numbers.length+1),2)));
+    }
+
+    public static int findMissingBit(int missingNumber, int bitIndex, int[] numbers, int bitCount)
+    {
+        int zeroCount = 0;
+        int oneCount = 0;
+        for (int number : numbers) {
+            if (Util.getBit(number, bitIndex) == 0) {
+                zeroCount++;
+            } else {
+                oneCount++;
+            }
+        }
+        if(zeroCount > oneCount)
+        {
+            missingNumber = Util.setBit(missingNumber,bitIndex,1);
+        }
+        System.out.println("bitIndex: "+bitIndex
+                + " | zeros: " + zeroCount
+                + " | ones: " + oneCount
+                + " | bits: " + Util.padBinary(missingNumber,bitCount)
+                + " | number: " + missingNumber);
+        if(bitIndex < bitCount)
+        {
+            missingNumber = findMissingBit(missingNumber,bitIndex+1,numbers, bitCount);
+        }
+        return missingNumber;
+    }
 }

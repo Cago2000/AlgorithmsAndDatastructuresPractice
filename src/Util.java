@@ -148,7 +148,8 @@ public class Util {
         return matrix;
     }
 
-    public static Graph drawGraph(int[][] input, String title, int activeNode){
+    public static Graph drawGraph(int[][] input, String title, int activeNode)
+    {
         Graph g = graph("Graph")
                 .graphAttr().with(Label.of(title))
                 .linkAttr().with("class", "link-class");
@@ -184,7 +185,31 @@ public class Util {
         return tree;
     }
 
-    public static void saveGraph(Graph g, Engine engine, String filePath) throws IOException {
+    public static void saveGraph(Graph g, Engine engine, String filePath) throws IOException
+    {
         Graphviz.fromGraph(g).engine(engine).render(Format.PNG).toFile(new File(filePath));
+    }
+
+    public static int getBit(int num, int index)
+    {
+        return (num >> (index-1)) & 1;
+    }
+
+    public static int setBit(int num, int index, int bit)
+    {
+        if(bit == 1){
+            num = num | (1 << (index-1));
+        }
+        if(bit == 0){
+            num = num & ~(1 << (index-1));
+        }
+        return num;
+    }
+    public static double log(double num, int base)
+    {
+        return Math.log(num) / Math.log(base);
+    }
+    public static String padBinary(int num, int count) {
+        return String.format("%" + count + "s", Integer.toBinaryString(num)).replace(' ', '0');
     }
 }
