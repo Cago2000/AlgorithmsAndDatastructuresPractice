@@ -43,39 +43,22 @@ public class Util {
     {
         Random random = new Random();
         int arraySize = random.nextInt(100) + 1; // random size 1-100
-        int[] array = new int[arraySize];
-        for (int i = 0; i < arraySize; i++)
-        {
-            array[i] = random.nextInt(101); // random number 1-100
-        }
-        return array;
+        return random.ints(arraySize, 1, 101).toArray();
     }
     public static int[] makeRandomArray(int size, int maxValue)
     {
         Random random = new Random();
-        int[] array = new int[size];
-        for (int i = 0; i < size; i++)
-        {
-            array[i] = random.nextInt(maxValue); // random number 1-100
-        }
-        return array;
+        return random.ints(size, 1, maxValue).toArray();
     }
 
-    public static void printArray(int[] input)
-    {
-        for (int i:input)
-        {
-            System.out.print(i +" ");
-        }
+    public static void printArray(int[] input) {
+        Arrays.stream(input).forEach(i -> System.out.print(i + " "));
         System.out.println();
     }
 
     public static<E> void printArray(E[] input)
     {
-        for (E i:input)
-        {
-            System.out.print(i +" ");
-        }
+        Arrays.stream(input).forEach(i -> System.out.print(i + " "));
         System.out.println();
     }
 
@@ -209,7 +192,9 @@ public class Util {
     {
         return Math.log(num) / Math.log(base);
     }
-    public static String padBinary(int num, int count) {
+
+    public static String padBinary(int num, int count)
+    {
         return String.format("%" + count + "s", Integer.toBinaryString(num)).replace(' ', '0');
     }
 }
