@@ -168,12 +168,10 @@ public class Sorts {
     public static void bubbleSort()
     {
         int comparisons = 0;
-        int[] input = Util.makeRandomArray();
-        boolean sorted;
-        System.out.println("Bubble Sort:");
+        int[] input = Util.makeRandomArray(10000, 100);
+        System.out.println("Bubble Sort with " + input.length + " elements:");
         Util.printArray(input);
-        sorted = Util.arrayIsSorted(input);
-        if(!sorted)
+        if(!Util.arrayIsSorted(input))
         {
             for(int i = 0; i < input.length; i++)
             {
@@ -183,12 +181,13 @@ public class Sorts {
                     if(input[i] > input[j])
                     {
                         Util.swapElements(input,i,j);
-                        System.out.println("Swapped " + input[j] + " with "+ input[i] + ", Comparisons = " + comparisons);
-                        Util.printArray(input);
+                        //System.out.println("Swapped " + input[j] + " with "+ input[i] + ", Comparisons = " + comparisons);
+                        //Util.printArray(input);
                     }
                 }
             }
         }
+        System.out.println("comparisons: " + comparisons + ", n²:" + Math.pow(input.length, 2));
         System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
     }
 }

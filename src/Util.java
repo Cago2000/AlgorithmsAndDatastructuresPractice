@@ -142,12 +142,12 @@ public class Util {
                 if(i == j)
                 {
                     g = g.with(node((char) (65 + i) + " " + input[i][i])
-                            .with(i == activeNode ? Color.RED: Color.BLACK));
+                            .with(i == activeNode ? Color.RED: Color.BLUE));
                 }
                 else
                 {
                     g = g.with(node((char) (65 + i) + " " + input[i][i])
-                            .with(i == activeNode ? Color.RED: Color.BLACK)
+                            .with(i == activeNode ? Color.RED: Color.BLUE)
                             .link(to(node((char) (65 + j) + " " + input[j][j]))
                                     .with(attr("label", input[i][j]), Style.DASHED)));
                 }
@@ -157,7 +157,7 @@ public class Util {
     }
     public static Graph drawTree(Node[] nodes, String title)
     {
-        Graph tree = graph("Tree").directed()
+        Graph tree = graph("tree").directed()
                 .graphAttr().with(Rank.dir(BOTTOM_TO_TOP),Label.of(title))
                 .linkAttr().with("class", "link-class");
         for(int i = nodes.length-1; i > 0; i--) {

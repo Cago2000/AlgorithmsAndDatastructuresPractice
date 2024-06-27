@@ -157,7 +157,7 @@ public class Algorithms {
 
             i++;
         }
-        g = Util.drawTree(nodes, "Final tree");
+        g = Util.drawTree(nodes, "minimum spanning tree");
         Util.saveGraph(g, Engine.DOT,"./graphs/dijkstraAlgorithm/finalTree.png");
 
         String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\dijkstraAlgorithm\\initial.png";
