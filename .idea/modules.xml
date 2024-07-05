@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../AlgorithmsAndDatastructurePractice/AlgorithmsAndDatastructuresPractice.iml" filepath="$PROJECT_DIR$/../AlgorithmsAndDatastructurePractice/AlgorithmsAndDatastructuresPractice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AlgorithmsAndDatastructuresPractice.iml" filepath="$PROJECT_DIR$/AlgorithmsAndDatastructuresPractice.iml" />
     </modules>
   </component>
 </project>
