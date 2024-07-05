@@ -148,4 +148,29 @@ public class Problems {
         }
         return missingNumber;
     }
+
+    public static void maxTeilfeldProblem(int size)
+    {
+        Random random = new Random();
+        int[] array = random.ints(size, -100, 100).toArray();
+        int bestSum = -100;
+        int minRange = size, maxRange = 0;
+        for(int i = 0; i < array.length; i++)
+        {
+            int sum = 0;
+            for(int j = i; j < array.length; j++)
+            {
+                sum += array[j];
+                if(sum > bestSum)
+                {
+                    minRange = i;
+                    maxRange = j;
+                    bestSum = sum;
+                }
+            }
+        }
+        System.out.print("Teilfeld: ");
+        Util.printArray(array);
+        System.out.println("Best sum: " + bestSum + " in range " + minRange + " to " + maxRange);
+    }
 }

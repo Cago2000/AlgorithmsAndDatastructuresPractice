@@ -17,6 +17,7 @@ public class Main {
         //Algorithms.dijkstraAlgorithm(6);
         //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
         //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
-        Problems.findMissingBitProblem(8);
+        //Problems.findMissingBitProblem(8);
+        Problems.maxTeilfeldProblem(10);
     }
 }
