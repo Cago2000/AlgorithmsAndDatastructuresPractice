@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class Sorts {
     public static void heapSort()
@@ -70,12 +71,13 @@ public class Sorts {
         return mergedArray;
     }
 
-    public static void countingSort()
+    public static void countingSort(int size, int maxValue)
     {
-        int[] input = Util.makeRandomArray();
+        int[] input = Util.makeRandomArray(size, maxValue);
         int[] output = new int[input.length];
-        Util.printArray(input);
+        //Util.printArray(input);
 
+        long startTime = System.nanoTime();
         int maxNumber = 0;
         for(int i:input)
         {
@@ -95,16 +97,21 @@ public class Sorts {
             output[countingArray[input[i]]-1] = input[i];
             countingArray[input[i]] -= 1;
         }
-        Util.printArray(output);
+        long endTime = System.nanoTime() - startTime;
+        //Util.printArray(output);
+        System.out.println("Time for counting sort in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
     }
 
 
-    public static void quickSortInit()
+    public static void quickSortInit(int size, int maxValue)
     {
-        int[] input = Util.makeRandomArray();
-        Util.printArray(input);
+        long startTime = System.nanoTime();
+        int[] input = Util.makeRandomArray(size, maxValue);
+        //Util.printArray(input);
         input = quickSort(input,0,input.length);
-        Util.printArray(input);
+        //Util.printArray(input);
+        long endTime = System.nanoTime() - startTime;
+        System.out.println("Time for quick sort in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
     }
     public static int[] quickSort(int[] input,int left,int right)
     {
@@ -120,21 +127,7 @@ public class Sorts {
                 Util.swapElements(input,i,j);
             }
         }
-
         Util.swapElements(input,left,j);
-
-        System.out.println("Pivot: " + pivotElement);
-        System.out.print("Left Partition: ");
-        for (int a = 0; a <= j; a++) {
-            System.out.print(input[a]+" ");
-        }
-        System.out.print("\nRight Partition: ");
-        for (int a = j+1; a < right; a++) {
-            System.out.print(input[a]+" ");
-        }
-        System.out.println("\n----------------------------------------");
-
-
         quickSort(input,left,j);                //recursive calls
         quickSort(input,j+1,right);
         return input;
