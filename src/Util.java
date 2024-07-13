@@ -39,6 +39,16 @@ public class Util {
         return result;
     }
 
+    public static int[] reverseArray(int[] input) {
+        int start = 0;
+        int len = input.length-1;
+        for(int i = 0; i < len; i++, len--)
+        {
+            Util.swapElements(input, i, len);
+        }
+        return input;
+    }
+
     public static int[] makeRandomArray()
     {
         Random random = new Random();
