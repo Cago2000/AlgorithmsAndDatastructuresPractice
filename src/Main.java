@@ -15,10 +15,10 @@ public class Main {
         //Problems.hatProblem(100000,10000);
         //Algorithms.primsAlgorithm(6);
         //Algorithms.dijkstraAlgorithm(6);
-        Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
-        Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
-        System.out.println("Valid: " + Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363));
-        System.out.println("Valid: " + Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363));
+        //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
+        //System.out.println("Valid: " + Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363));
+        //System.out.println("Valid: " + Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363));
         //Problems.findMissingBitProblem(8);
         //Problems.maxTeilfeldProblem(10);
     }

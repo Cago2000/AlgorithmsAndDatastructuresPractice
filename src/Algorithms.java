@@ -19,7 +19,6 @@ public class Algorithms {
             b = temp;
         }
         if(b == 0){return a;}
-
         return euclideanAlgorithm(b, a % b);
     }
 
@@ -31,7 +30,7 @@ public class Algorithms {
     }
     public static void binarySearch(int[] input,int left, int right, int wantedNumber, int comparisonCount)
     {
-        if(right - left < 1)
+        if(left >= right)
         {
             return;
         }
