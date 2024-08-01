@@ -1,11 +1,8 @@
 import guru.nidi.graphviz.engine.Engine;
 import guru.nidi.graphviz.model.Graph;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Algorithms {
@@ -162,5 +159,47 @@ public class Algorithms {
         String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\dijkstraAlgorithm\\initial.png";
         String expr = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen " + path;
         Runtime.getRuntime().exec(expr);
+    }
+    public static void BinaryTreeTraversingInit(Util.TraversingType traversingType) {
+        Integer[] binaryTree = new Integer[]{10, 4, 17, 1, 5, 16, 21};
+        List<Integer> path = new ArrayList<>();
+        switch(traversingType)
+        {
+            case Util.TraversingType.INORDER:
+                inorderTraverse(binaryTree, 0, path);
+                break;
+            case Util.TraversingType.PREORDER:
+                preorderTraverse(binaryTree, 0, path);
+                break;
+            case Util.TraversingType.POSTORDER:
+                postorderTraverse(binaryTree, 0, path);
+                break;
+        }
+        System.out.println(path);
+    }
+
+    private static void inorderTraverse(Integer[] tree, int index, List<Integer> path) {
+        if (index >= tree.length || tree[index] == null) {
+            return;
+        }
+        inorderTraverse(tree, 2 * index + 1, path);
+        path.add(tree[index]);
+        inorderTraverse(tree, 2 * index + 2, path);
+    }
+    private static void preorderTraverse(Integer[] tree, int index, List<Integer> path) {
+        if (index >= tree.length || tree[index] == null) {
+            return;
+        }
+        path.add(tree[index]);
+        preorderTraverse(tree, 2 * index + 1, path);
+        preorderTraverse(tree, 2 * index + 2, path);
+    }
+    private static void postorderTraverse(Integer[] tree, int index, List<Integer> path) {
+        if (index >= tree.length || tree[index] == null) {
+            return;
+        }
+        postorderTraverse(tree, 2 * index + 1, path);
+        postorderTraverse(tree, 2 * index + 2, path);
+        path.add(tree[index]);
     }
 }

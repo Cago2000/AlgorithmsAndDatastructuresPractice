@@ -21,5 +21,6 @@ public class Main {
         //System.out.println("Valid: " + Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363));
         //Problems.findMissingBitProblem(8);
         //Problems.maxTeilfeldProblem(10);
+        Algorithms.BinaryTreeTraversingInit(Util.TraversingType.POSTORDER);
     }
 }

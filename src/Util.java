@@ -19,6 +19,13 @@ import static guru.nidi.graphviz.model.Factory.node;
 
 public class Util {
 
+    public enum TraversingType {
+        INORDER,
+        PREORDER,
+        POSTORDER
+    }
+
+
     public static boolean arrayIsSorted(int[] input)
     {
         int comparisons = 0;
