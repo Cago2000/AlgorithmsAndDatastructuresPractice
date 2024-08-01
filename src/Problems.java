@@ -81,7 +81,7 @@ public class Problems {
         System.out.println("Runtime: " + totalRuntimeInMs + "ms");
     }
 
-    public static boolean binarySearchTreeSequenceProblem(int[] input, int searchedNumber)
+    public static void binarySearchTreeSequenceProblem(int[] input, int searchedNumber)
     {
         List<Integer> left = new ArrayList<>();
         List<Integer> right = new ArrayList<>();
@@ -94,9 +94,9 @@ public class Problems {
             }
 
         }
-        Util.printArray(left.stream().mapToInt(x->x).toArray());
-        Util.printArray(right.stream().mapToInt(x->x).toArray());
-        return Util.arrayIsSorted(Util.reverseArray(left.stream().mapToInt(x->x).toArray())) && Util.arrayIsSorted(right.stream().mapToInt(x->x).toArray());
+        boolean valid = Util.arrayIsSorted(Util.reverseArray(left.stream().mapToInt(x->x).toArray())) && Util.arrayIsSorted(right.stream().mapToInt(x->x).toArray());
+        System.out.print("Valid: " + valid + ", Input: ");
+        Util.printArray(input);
     }
 
     public static void findMissingBitProblem(int bitCount)

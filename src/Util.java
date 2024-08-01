@@ -28,11 +28,9 @@ public class Util {
 
     public static boolean arrayIsSorted(int[] input)
     {
-        int comparisons = 0;
         boolean result = false;
         for(int i = 1; i < input.length;i++) // check if input is sorted
         {
-            comparisons++;
             if(input[i-1]>input[i])
             {
                 break;
@@ -40,7 +38,6 @@ public class Util {
             else if(i == input.length-1)
             {
                 result = true;
-                System.out.println("Comparisons = " + comparisons);
             }
         }
         return result;

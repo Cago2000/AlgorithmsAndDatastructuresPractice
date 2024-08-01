@@ -160,7 +160,7 @@ public class Algorithms {
         String expr = "rundll32 \"C:\\Program Files (x86)\\Windows Photo Viewer\\PhotoViewer.dll\", ImageView_Fullscreen " + path;
         Runtime.getRuntime().exec(expr);
     }
-    public static void BinaryTreeTraversingInit(Util.TraversingType traversingType) {
+    public static void binaryTreeTraversingInit(Util.TraversingType traversingType) {
         Integer[] binaryTree = new Integer[]{10, 4, 17, 1, 5, 16, 21};
         List<Integer> path = new ArrayList<>();
         switch(traversingType)
