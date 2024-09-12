@@ -1,5 +1,6 @@
 import java.lang.Math;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class Problems {
 
@@ -153,24 +154,14 @@ public class Problems {
     {
         Random random = new Random();
         int[] array = random.ints(size, -100, 100).toArray();
-        int bestSum = -100;
-        int minRange = size, maxRange = 0;
-        for(int i = 0; i < array.length; i++)
-        {
-            int sum = 0;
-            for(int j = i; j < array.length; j++)
-            {
-                sum += array[j];
-                if(sum > bestSum)
-                {
-                    minRange = i;
-                    maxRange = j;
-                    bestSum = sum;
-                }
-            }
+        int maximum = 0, currentMaximum = 0;
+        long startTime = System.nanoTime();
+        for(int value : array) {
+            currentMaximum = Math.max(currentMaximum + value, 0);
+            maximum = Math.max(maximum, currentMaximum);
         }
-        System.out.print("Teilfeld: ");
-        Util.printArray(array);
-        System.out.println("Best sum: " + bestSum + " in range " + minRange + " to " + maxRange);
+        System.out.println("Best sum: " + maximum);
+        long endTime = System.nanoTime() - startTime;
+        System.out.println("Time for maxTeilfeldProblem with " + array.length + " elements in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
     }
 }
