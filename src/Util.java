@@ -19,13 +19,18 @@ import static guru.nidi.graphviz.model.Factory.node;
 
 public class Util {
 
+    public enum TraversingType {
+        INORDER,
+        PREORDER,
+        POSTORDER
+    }
+
+
     public static boolean arrayIsSorted(int[] input)
     {
-        int comparisons = 0;
         boolean result = false;
         for(int i = 1; i < input.length;i++) // check if input is sorted
         {
-            comparisons++;
             if(input[i-1]>input[i])
             {
                 break;
@@ -33,10 +38,19 @@ public class Util {
             else if(i == input.length-1)
             {
                 result = true;
-                System.out.println("Comparisons = " + comparisons);
             }
         }
         return result;
+    }
+
+    public static int[] reverseArray(int[] input) {
+        int start = 0;
+        int len = input.length-1;
+        for(int i = 0; i < len; i++, len--)
+        {
+            Util.swapElements(input, i, len);
+        }
+        return input;
     }
 
     public static int[] makeRandomArray()

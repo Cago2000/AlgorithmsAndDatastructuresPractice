@@ -84,28 +84,20 @@ public class Problems {
 
     public static void binarySearchTreeSequenceProblem(int[] input, int searchedNumber)
     {
-        //idea: save each last decided number (left or right of searchedNumber)
-        // any following left decided number cannot be smaller than prevLeft
-        // any following right decided number cannot be bigger than prevRight
-        int prevRight = 1000, prevLeft = 0;
+        List<Integer> left = new ArrayList<>();
+        List<Integer> right = new ArrayList<>();
         for (int number : input) {
-            if (searchedNumber > number && prevLeft < number) {
-                prevLeft = number;
-                continue;
+            if (searchedNumber > number) {
+                right.add(number);
             }
-            if (searchedNumber < number && prevRight > number) {
-                prevRight = number;
-                continue;
+            if (searchedNumber < number) {
+                left.add(number);
             }
-            if(searchedNumber == number)
-            {
-                continue;
-            }
-            System.out.println("Sequence is not a valid binaryTree! " +
-            (searchedNumber > number ? number + " smaller prevLeft " + prevLeft + "!": number + " bigger prevRight " + prevRight + "!"));
-            return;
+
         }
-        System.out.println("Sequence is a valid binaryTree!");
+        boolean valid = Util.arrayIsSorted(Util.reverseArray(left.stream().mapToInt(x->x).toArray())) && Util.arrayIsSorted(right.stream().mapToInt(x->x).toArray());
+        System.out.print("Valid: " + valid + ", Input: ");
+        Util.printArray(input);
     }
 
     public static void findMissingBitProblem(int bitCount)

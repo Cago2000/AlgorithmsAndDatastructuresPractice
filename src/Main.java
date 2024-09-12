@@ -17,7 +17,12 @@ public class Main {
         //Algorithms.dijkstraAlgorithm(6);
         //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
         //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
+        //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
         //Problems.findMissingBitProblem(8);
-        Problems.maxTeilfeldProblem(100000);
+        //Problems.maxTeilfeldProblem(10);
+        //Algorithms.binaryTreeTraversingInit(Util.TraversingType.INORDER);
+        //Algorithms.binaryTreeTraversingInit(Util.TraversingType.PREORDER);
+        //Algorithms.binaryTreeTraversingInit(Util.TraversingType.POSTORDER);
     }
 }

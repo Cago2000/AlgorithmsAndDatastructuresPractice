@@ -7,6 +7,7 @@ public class Sorts {
         int[] input = Util.makeRandomArray();
         input[0] = 0;
         Util.printArray(input);
+        long startTime = System.nanoTime();
         int n = input.length-1;
         for (int i = n/2; i >= 1 ; i--)
         {
@@ -17,15 +18,20 @@ public class Sorts {
             Util.swapElements(input,1,i);
             Util.maxHeapify(input,1,i-1);
         }
+        long endTime = System.nanoTime() - startTime;
         Util.printArray(input);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
 
     public static void mergeSortInit()
     {
         int[] input = Util.makeRandomArray();
         Util.printArray(input);
+        long startTime = System.nanoTime();
         input = mergeSort(input,0,input.length-1);
+        long endTime = System.nanoTime() - startTime;
         Util.printArray(input);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
 
     public static int[] mergeSort(int[] input, int left, int right)
@@ -75,7 +81,7 @@ public class Sorts {
     {
         int[] input = Util.makeRandomArray(size, maxValue);
         int[] output = new int[input.length];
-        //Util.printArray(input);
+        Util.printArray(input);
 
         long startTime = System.nanoTime();
         int maxNumber = 0;
@@ -98,25 +104,24 @@ public class Sorts {
             countingArray[input[i]] -= 1;
         }
         long endTime = System.nanoTime() - startTime;
-        //Util.printArray(output);
-        System.out.println("Time for counting sort in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
+        Util.printArray(output);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
 
 
     public static void quickSortInit(int size, int maxValue)
     {
-        long startTime = System.nanoTime();
         int[] input = Util.makeRandomArray(size, maxValue);
-        //Util.printArray(input);
+        Util.printArray(input);
+        long startTime = System.nanoTime();
         input = quickSort(input,0,input.length);
-        //Util.printArray(input);
         long endTime = System.nanoTime() - startTime;
-        System.out.println("Time for quick sort in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
+        Util.printArray(input);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
     public static int[] quickSort(int[] input,int left,int right)
     {
         if(left>=right){return input;}
-
         int pivotElement = input[left];
         int j = left;
         for(int i = left+1; i < right; i++)
@@ -136,10 +141,9 @@ public class Sorts {
     {
         int comparisons = 0;
         int[] input = Util.makeRandomArray();
-        boolean sorted = Util.arrayIsSorted(input);
-        System.out.println("Insertion Sort:");
         Util.printArray(input);
-        if(!sorted)
+        long startTime = System.nanoTime();
+        if(!Util.arrayIsSorted(input))
         {
             for(int i = 1; i < input.length; i++)
             {
@@ -149,21 +153,21 @@ public class Sorts {
                     if(input[j] < input[j-1])
                     {
                         Util.swapElements(input,j-1,j);
-                        System.out.println("Swapped " + input[j-1] + " with "+ input[j] + ", Comparisons = " + comparisons);
-                        Util.printArray(input);
                     }
                 }
             }
         }
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+        long endTime = System.nanoTime() - startTime;
+        Util.printArray(input);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
 
     public static void bubbleSort()
     {
         int comparisons = 0;
         int[] input = Util.makeRandomArray(10000, 100);
-        System.out.println("Bubble Sort with " + input.length + " elements:");
         Util.printArray(input);
+        long startTime = System.nanoTime();
         if(!Util.arrayIsSorted(input))
         {
             for(int i = 0; i < input.length; i++)
@@ -174,13 +178,12 @@ public class Sorts {
                     if(input[i] > input[j])
                     {
                         Util.swapElements(input,i,j);
-                        //System.out.println("Swapped " + input[j] + " with "+ input[i] + ", Comparisons = " + comparisons);
-                        //Util.printArray(input);
                     }
                 }
             }
         }
-        System.out.println("comparisons: " + comparisons + ", n²:" + Math.pow(input.length, 2));
-        System.out.println("-------------------------------------------------------------------------------------------------------------------------------");
+        long endTime = System.nanoTime() - startTime;
+        Util.printArray(input);
+        System.out.println("Time in microseconds: " + (float) TimeUnit.NANOSECONDS.toMicros(endTime));
     }
 }
