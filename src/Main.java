@@ -20,7 +20,7 @@ public class Main {
         //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
         //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
         //Problems.findMissingBitProblem(8);
-        //Problems.maxTeilfeldProblem(10);
+        Problems.maxTeilfeldProblem(1000);
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.INORDER);
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.PREORDER);
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.POSTORDER);
