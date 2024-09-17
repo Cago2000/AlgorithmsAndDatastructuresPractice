@@ -3,6 +3,8 @@ public class Node {
     int value;
     boolean checked;
     Node parent;
+
+    public Node(){}
     public Node(int givenIndex, int givenValue)
     {
         index = givenIndex;

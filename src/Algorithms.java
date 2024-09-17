@@ -51,7 +51,6 @@ public class Algorithms {
     }
     
     public static void primsAlgorithm(int size) throws IOException {
-
         if(size<2){return;}
         File dir = new File("./graphs/primAlgorithm");
         Arrays.stream(dir.listFiles()).forEach(File::delete);
@@ -67,12 +66,14 @@ public class Algorithms {
         Graph g = Util.drawGraph(input,"Initial",-1);
         Util.saveGraph(g, Engine.CIRCO,"./graphs/primAlgorithm/initial.png");
 
-        int i = 0;
         boolean allChecked = false;
-        while(!allChecked)
+        for(int i = 0;!allChecked; i++)
         {
+            Node min = new Node();
             Optional<Node> smallestNode = Arrays.stream(nodes).filter((node) -> !node.checked).min(Comparator.comparing(Node::getValue));
-            Node min = smallestNode.get();
+            if(smallestNode.isPresent()){
+                min = smallestNode.get();
+            }
             for (int j = 0; j < input.length; j++)
             {
                 if(input[min.index][j] != 0 && !nodes[j].checked && input[min.index][j] < input[j][j])
@@ -95,10 +96,8 @@ public class Algorithms {
 
             g = Util.drawGraph(input, title, min.index);
             Util.saveGraph(g, Engine.CIRCO,"./graphs/primAlgorithm/step" + (i+1) + ".png");
-
-            i++;
         }
-        g = Util.drawTree(nodes, "Final tree");
+        g = Util.drawTree(nodes, "minimum spanning tree");
         Util.saveGraph(g, Engine.DOT,"./graphs/primAlgorithm/finalTree.png");
 
         String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\primAlgorithm\\initial.png";
@@ -107,7 +106,6 @@ public class Algorithms {
     }
 
     public static void dijkstraAlgorithm(int size) throws IOException {
-
         if(size<2){return;}
         File dir = new File("./graphs/dijkstraAlgorithm");
         Arrays.stream(dir.listFiles()).forEach(File::delete);
@@ -122,12 +120,14 @@ public class Algorithms {
         Graph g = Util.drawGraph(input,"Initial",-1);
         Util.saveGraph(g, Engine.CIRCO,"./graphs/dijkstraAlgorithm/initial.png");
 
-        int i = 0;
         boolean allChecked = false;
-        while(!allChecked)
+        for(int i = 0;!allChecked; i++)
         {
+            Node min = new Node();
             Optional<Node> smallestNode = Arrays.stream(nodes).filter((node) -> !node.checked).min(Comparator.comparing(Node::getValue));
-            Node min = smallestNode.get();
+            if(smallestNode.isPresent()){
+                min = smallestNode.get();
+            }
             for (int j = 0; j < input.length; j++)
             {
                 if(input[min.index][j] != 0 && !nodes[j].checked && input[j][j] > (input[min.index][j] + min.getValue()))
@@ -150,10 +150,8 @@ public class Algorithms {
 
             g = Util.drawGraph(input, title, min.index);
             Util.saveGraph(g, Engine.CIRCO,"./graphs/dijkstraAlgorithm/step" + (i+1) + ".png");
-
-            i++;
         }
-        g = Util.drawTree(nodes, "minimum spanning tree");
+        g = Util.drawTree(nodes, "shortest paths");
         Util.saveGraph(g, Engine.DOT,"./graphs/dijkstraAlgorithm/finalTree.png");
 
         String path = "C:\\Users\\Crusader\\IdeaProjects\\AlgorithmsAndDatastructurePractice\\graphs\\dijkstraAlgorithm\\initial.png";

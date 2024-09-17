@@ -13,8 +13,8 @@ public class Main {
         //Problems.fiveComparisonProblem();
         //Algorithms.binarySearchInit();
         //Problems.hatProblem(100000,10000);
-        //Algorithms.primsAlgorithm(6);
-        //Algorithms.dijkstraAlgorithm(6);
+        Algorithms.primsAlgorithm(7);
+        Algorithms.dijkstraAlgorithm(7);
         //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
         //Problems.binarySearchTreeSequenceProblem(new int[]{925,202,911,240,912,245,363},363);
         //Problems.binarySearchTreeSequenceProblem(new int[]{2,252,401,398,330,344,397,363},363);
