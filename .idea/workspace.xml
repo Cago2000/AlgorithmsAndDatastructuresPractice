@@ -4,10 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abbadfaa-498d-4c0f-a79c-e4b468f0e8fe" name="Changes" comment="added time measurement to quicksort and countingsort&#10;deleted prints from quicksort (they are slow)">
+    <list default="true" id="abbadfaa-498d-4c0f-a79c-e4b468f0e8fe" name="Changes" comment="improved maxTeilfeldProblem from O(n^2) to O(n)">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/finalTree.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/finalTree.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/initial.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/initial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step1.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step2.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step3.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step4.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step5.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step6.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/dijkstraAlgorithm/step6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/finalTree.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/finalTree.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/initial.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/initial.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step1.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step2.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step3.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step4.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step5.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphs/primAlgorithm/step6.png" beforeDir="false" afterPath="$PROJECT_DIR$/graphs/primAlgorithm/step6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Algorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Problems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Problems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +70,9 @@
       <workItem from="1720181559488" duration="2896000" />
       <workItem from="1720705318681" duration="1699000" />
       <workItem from="1726133167985" duration="1183000" />
+      <workItem from="1726474947248" duration="1860000" />
+      <workItem from="1726481412445" duration="302000" />
+      <workItem from="1726564342228" duration="705000" />
     </task>
     <task id="LOCAL-00001" summary="implemented maxTeilfeldProblem">
       <option name="closed" value="true" />
@@ -76,7 +98,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720707027504</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="improved maxTeilfeldProblem from O(n^2) to O(n)">
+      <option name="closed" value="true" />
+      <created>1726135113029</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726135113031</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implemented maxTeilfeldProblem" />
     <MESSAGE value="added time measurement to quicksort and countingsort&#10;deleted prints from quicksort (they are slow)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added time measurement to quicksort and countingsort&#10;deleted prints from quicksort (they are slow)" />
+    <MESSAGE value="improved maxTeilfeldProblem from O(n^2) to O(n)" />
+    <option name="LAST_COMMIT_MESSAGE" value="improved maxTeilfeldProblem from O(n^2) to O(n)" />
   </component>
 </project>
