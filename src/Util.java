@@ -95,8 +95,8 @@ public class Util {
 
     public static void maxHeapify(int[] input, int parent, int n)
     {
-        int leftChild = 2*parent;
-        int rightChild= (2*parent)+1;
+        int leftChild = 2*parent+1;
+        int rightChild = 2*parent+2;
         int largest;
         if(leftChild <= n && input[leftChild] > input[parent])
         {

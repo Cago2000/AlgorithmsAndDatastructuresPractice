@@ -5,18 +5,17 @@ public class Sorts {
     public static void heapSort()
     {
         int[] input = Util.makeRandomArray();
-        input[0] = 0;
         Util.printArray(input);
         long startTime = System.nanoTime();
         int n = input.length-1;
-        for (int i = n/2; i >= 1 ; i--)
+        for (int i = n/2; i >= 0 ; i--)
         {
             Util.maxHeapify(input,i,n);
         }
-        for(int i = n; i >= 2 ; i--)
+        for(int i = n; i >= 1 ; i--)
         {
-            Util.swapElements(input,1,i);
-            Util.maxHeapify(input,1,i-1);
+            Util.swapElements(input,0,i);
+            Util.maxHeapify(input,0,i-1);
         }
         long endTime = System.nanoTime() - startTime;
         Util.printArray(input);
@@ -143,17 +142,15 @@ public class Sorts {
         int[] input = Util.makeRandomArray();
         Util.printArray(input);
         long startTime = System.nanoTime();
-        if(!Util.arrayIsSorted(input))
+        if(Util.arrayIsSorted(input)){return;}
+        for(int i = 1; i < input.length; i++)
         {
-            for(int i = 1; i < input.length; i++)
+            for(int j = i; j > 0; j--)
             {
-                for(int j = i; j > 0; j--)
+                comparisons++;
+                if(input[j] < input[j-1])
                 {
-                    comparisons++;
-                    if(input[j] < input[j-1])
-                    {
-                        Util.swapElements(input,j-1,j);
-                    }
+                    Util.swapElements(input,j-1,j);
                 }
             }
         }
@@ -164,7 +161,6 @@ public class Sorts {
 
     public static void bubbleSort()
     {
-        int comparisons = 0;
         int[] input = Util.makeRandomArray(10000, 100);
         Util.printArray(input);
         long startTime = System.nanoTime();
@@ -172,9 +168,8 @@ public class Sorts {
         {
             for(int i = 0; i < input.length; i++)
             {
-                for(int j = i + 1; j < input.length;j++)
+                for(int j = i+1; j < input.length;j++)
                 {
-                    comparisons++;
                     if(input[i] > input[j])
                     {
                         Util.swapElements(input,i,j);

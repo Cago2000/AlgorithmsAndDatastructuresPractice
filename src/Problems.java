@@ -142,8 +142,7 @@ public class Problems {
         return missingNumber;
     }
 
-    public static void maxTeilfeldProblem(int size)
-    {
+    public static void maxTeilfeldProblem(int size) {
         Random random = new Random();
         int[] array = random.ints(size, -100, 100).toArray();
         int maximum = 0, currentMaximum = 0;
