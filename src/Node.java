@@ -4,9 +4,10 @@ public class Node {
     boolean checked;
     Node parent;
 
-    public Node(){}
-    public Node(int givenIndex, int givenValue)
-    {
+    public Node() {
+    }
+
+    public Node(int givenIndex, int givenValue) {
         index = givenIndex;
         value = givenValue;
         checked = false;
@@ -48,10 +49,10 @@ public class Node {
     @Override
     public String toString() {
         return "Node{" +
-                "Node=" + (char) (index+65) +
+                "Node=" + (char) (index + 65) +
                 ", value=" + value +
                 ", checked=" + checked +
-                ", parent=" + (parent!=null ? (char) (parent.index+65) : parent) +
+                ", parent=" + (parent != null ? (char) (parent.index + 65) : parent) +
                 '}';
     }
 }
