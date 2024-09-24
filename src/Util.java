@@ -19,9 +19,11 @@ import static guru.nidi.graphviz.model.Factory.*;
 public class Util {
 
     public enum TraversingType {
-        INORDER,
-        PREORDER,
-        POSTORDER
+        INORDER, PREORDER, POSTORDER
+    }
+
+    public enum MontyHallPolicy {
+        SWITCH, STAY
     }
 
 

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="abbadfaa-498d-4c0f-a79c-e4b468f0e8fe" name="Changes" comment="improved heapsort to account for index 0">
+    <list default="true" id="abbadfaa-498d-4c0f-a79c-e4b468f0e8fe" name="Changes" comment="implemented unimodalMaximum&#10;reformatted code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Algorithms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Algorithms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Algorithms$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Algorithms$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Algorithms.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Algorithms.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/AlgorithmsAndDatastructuresPractice/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Problems.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Problems.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +74,8 @@
       <workItem from="1726392342354" duration="704000" />
       <workItem from="1726423021812" duration="18000" />
       <workItem from="1726592035487" duration="2631000" />
-      <workItem from="1726843354334" duration="4031000" />
+      <workItem from="1726843354334" duration="4186000" />
+      <workItem from="1727134727015" duration="3213000" />
     </task>
     <task id="LOCAL-00001" summary="implemented maxTeilfeldProblem">
       <option name="closed" value="true" />
@@ -103,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726594012562</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implemented unimodalMaximum&#10;reformatted code">
+      <option name="closed" value="true" />
+      <created>1726915555559</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726915555559</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,6 +138,7 @@
     <MESSAGE value="implemented maxTeilfeldProblem" />
     <MESSAGE value="added time measurement to quicksort and countingsort&#10;deleted prints from quicksort (they are slow)" />
     <MESSAGE value="improved heapsort to account for index 0" />
-    <option name="LAST_COMMIT_MESSAGE" value="improved heapsort to account for index 0" />
+    <MESSAGE value="implemented unimodalMaximum&#10;reformatted code" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented unimodalMaximum&#10;reformatted code" />
   </component>
 </project>

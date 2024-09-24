@@ -152,4 +152,77 @@ public class Problems {
         long endTime = System.nanoTime() - startTime;
         System.out.println("Time for maxTeilfeldProblem with " + array.length + " elements in ms: " + (float) TimeUnit.NANOSECONDS.toMillis(endTime));
     }
+    public static boolean montyHallProblem(Util.MontyHallPolicy policy)
+    {
+        Random random = new Random();
+        int[] doors = new int[]{0, 0, 0};
+        int car = random.nextInt(3);
+        doors[car] = 1;
+        Util.printArray(doors);
+        int firstChoice = random.nextInt(3);
+        System.out.println("First Choice: " + (firstChoice+1));
+        int firstReveal = firstChoice;
+        while(firstReveal == firstChoice || doors[firstReveal] != 0){
+            firstReveal = random.nextInt(3);
+        }
+        System.out.println("First Reveal: A goat was behind door number " + (firstReveal+1) + "!");
+        int secondChoice = firstChoice;
+        int secondReveal = firstReveal;
+        switch(policy)
+        {
+            case Util.MontyHallPolicy.SWITCH:
+                while(secondChoice == firstChoice || secondChoice == firstReveal){
+                    secondChoice = random.nextInt(3);
+                }
+                System.out.println("You are switching to door number " + (secondChoice+1) + "!");
+                while(secondReveal == secondChoice || secondReveal == firstReveal) {
+                    secondReveal = random.nextInt(3);
+                }
+                if(doors[secondReveal] == 1){
+                    System.out.println("Second Reveal: A car was behind door number " + (secondReveal+1) + "!");
+                    System.out.println("Second Choice: A goat was behind door number " + (secondChoice+1) + "! You lost!");
+                    return false;
+                }
+                else
+                {
+                    System.out.println("Second Reveal: A goat was behind door number " + (secondReveal+1) + "!");
+                    System.out.println("Second Choice: A car was behind door number " + (secondChoice+1) + "! You won!");
+                    return true;
+                }
+            case Util.MontyHallPolicy.STAY:
+                System.out.println("You are staying with door number " + (firstChoice+1) + "!");
+                while(secondReveal == firstChoice || secondReveal == firstReveal)
+                {
+                    secondReveal = random.nextInt(3);
+                }
+                if(doors[secondReveal] == 1){
+
+                    System.out.println("Second Reveal: A car was behind door number " + (car+1) + "!");
+                    System.out.println("Second Choice: A goat was behind door number " + (secondChoice+1) + "! You lost!");
+                    return false;
+                }
+                else
+                {
+                    System.out.println("Second Reveal: A goat was behind door number " + (secondReveal+1) + "!");
+                    System.out.println("Second Choice: A goat was behind door number " + (secondChoice+1) + "! You won!");
+                    return true;
+                }
+        }
+        return false;
+    }
+
+    public static void montyHallRuns(int runs, Util.MontyHallPolicy policy)
+    {
+        int wins = 0, losses = 0;
+        for(int i = 0; i < runs; i++)
+        {
+            if(Problems.montyHallProblem(policy)){
+                wins++;
+                continue;
+            }
+            losses++;
+        }
+        System.out.println("Wins: " + wins + ", Losses: " + losses);
+        System.out.println("Win% for "+ policy +"-Policy: " + (float) wins/runs);
+    }
 }

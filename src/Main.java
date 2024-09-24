@@ -25,6 +25,7 @@ public class Main {
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.INORDER);
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.PREORDER);
         //Algorithms.binaryTreeTraversingInit(Util.TraversingType.POSTORDER);
-        Algorithms.unimodalMaximumInit();
+        //Algorithms.unimodalMaximumInit();
+        Problems.montyHallRuns(10000, Util.MontyHallPolicy.SWITCH);
     }
 }
