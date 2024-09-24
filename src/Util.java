@@ -22,11 +22,6 @@ public class Util {
         INORDER, PREORDER, POSTORDER
     }
 
-    public enum MontyHallPolicy {
-        SWITCH, STAY
-    }
-
-
     public static boolean arrayIsSorted(int[] input) {
         boolean result = false;
         for (int i = 1; i < input.length; i++) // check if input is sorted
